@@ -10,14 +10,18 @@ router.get("/", (req, res) => {
 router.get("/:name", async (req, res) => {
   const pokemonName = req.params.name;
 
-  const description = await pokemonService.getShakespeareanDescriptionByName(
-    pokemonName
-  );
+  const response =
+    await pokemonService.getShakespeareanDescriptionByPokemonName(pokemonName);
 
-  res.send({
-    name: pokemonName,
-    description,
-  });
+  if (response.success) {
+    res.send({
+      name: pokemonName,
+      description: response.data,
+    });
+  } else {
+    res.status(404);
+    res.send({ success: false, message: response.message });
+  }
 });
 
 export { router as pokemonController };
