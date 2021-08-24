@@ -1,5 +1,6 @@
 import express from "express";
 import { pokemonController } from "./controllers/pokemon.controller.js";
+import PokemonService from "./services/pokemon.service.js";
 
 const app = express();
 const port = 3000;
@@ -14,4 +15,7 @@ app.listen(port, () => {
 
 app.use("/pokemon", pokemonController);
 
+const pokemonService = new PokemonService();
+
+export { pokemonService };
 export default app;
