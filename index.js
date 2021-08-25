@@ -1,10 +1,13 @@
 import express from "express";
+import cors from "cors";
 import { pokemonController } from "./controllers/pokemon.controller.js";
 import PokemonService from "./services/pokemon.service.js";
 import ShakespeareService from "./services/shakespeare.service.js";
 
 const app = express();
-const port = 3000;
+app.use(cors());
+
+const port = 3001;
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

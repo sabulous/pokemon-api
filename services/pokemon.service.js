@@ -26,7 +26,10 @@ class PokemonService {
 
   async getShakespeareanDescriptionByPokemonName(name) {
     try {
-      const englishDescription = await this.getDescriptionByName(name);
+      const englishDescription = await this.getDescriptionByName(
+        name.trim().toLowerCase()
+      );
+      console.log("english description:", englishDescription);
 
       const shakespeareanDescription = await shakespeareService.translate(
         englishDescription
