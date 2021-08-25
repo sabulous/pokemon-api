@@ -1,8 +1,7 @@
 import axios from "axios";
 import { shakespeareService } from "../index.js";
 
-const POKEMON_API = "https://pokeapi.co/api/v2/pokemon-species";
-
+const POKEMON_API = process.env.POKEMON_API;
 class PokemonService {
   constructor() {}
 

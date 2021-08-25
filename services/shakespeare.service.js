@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SHAKESPEARE_API = "https://api.funtranslations.com/translate/shakespeare";
+const SHAKESPEARE_API = process.env.SHAKESPEARE_API;
 
 class ShakespeareService {
   constructor() {}
