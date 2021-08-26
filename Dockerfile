@@ -23,4 +23,4 @@ COPY --chown=node . .
 ENV HOST=0.0.0.0 PORT=3001
 
 EXPOSE ${PORT}
-CMD [ "node", "-r", "dotenv/config", "./index.js" ]
+CMD [ "npm", "start" ]
