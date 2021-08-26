@@ -23,7 +23,14 @@ describe("ShakespeareService", function () {
       axios.get.mockRejectedValueOnce(
         new Error("Error: A problem occurred while translating description.")
       );
-      expect(shakespeareService.translate(inputText)).rejects.toThrowError();
+
+      try {
+        await shakespeareService.translate(inputText);
+      } catch (e) {
+        expect(e).toEqual(
+          new Error("Error: A problem occurred while translating description.")
+        );
+      }
     });
   });
 });
