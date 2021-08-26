@@ -7,12 +7,6 @@ import ShakespeareService from "./services/shakespeare.service.js";
 const app = express();
 app.use(cors());
 
-const port = process.env.PORT;
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
-
 app.use("/pokemon", pokemonController);
 
 const pokemonService = new PokemonService();
