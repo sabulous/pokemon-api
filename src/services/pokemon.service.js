@@ -1,14 +1,14 @@
 import axios from "axios";
 import { shakespeareService } from "../index.js";
 
-const POKEMON_API = process.env.POKEMON_API;
+export const POKEMON_API = process.env.POKEMON_API;
 
 class PokemonService {
   constructor() {}
 
   async getDescriptionByName(name) {
     try {
-      const res = await axios.get(`${POKEMON_API}/${name}/`);
+      const res = await axios.get(`${POKEMON_API}/${name}`);
       const descriptions = res?.data?.flavor_text_entries;
       let englishDescriptions = [];
 

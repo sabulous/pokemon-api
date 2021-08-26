@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SHAKESPEARE_API = process.env.SHAKESPEARE_API;
+export const SHAKESPEARE_API = process.env.SHAKESPEARE_API;
 
 class ShakespeareService {
   constructor() {}
@@ -8,7 +8,7 @@ class ShakespeareService {
   async translate(text) {
     try {
       const payload = { text };
-      const res = await axios.post(`${SHAKESPEARE_API}`, payload);
+      const res = await axios.post(SHAKESPEARE_API, payload);
       return res?.data?.contents?.translated;
     } catch (e) {
       throw new Error(
